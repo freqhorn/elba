@@ -1,0 +1,20 @@
+(declare-rel inv (Int Int Int Int))
+(declare-var i0 Int)
+(declare-var i1 Int)
+(declare-var j0 Int)
+(declare-var j1 Int)
+(declare-var k0 Int)
+(declare-var k1 Int)
+(declare-var temp0 Int)
+(declare-var temp1 Int)
+
+(rule (=> true (inv i0 j0 k0 temp0)))
+
+(rule (=> (and
+        (inv i0 j0 k0 temp0)
+        (and (<= i0 100) (<= j0 k0))
+        (= i1 j0)
+        (= j1 (+ i0 1))
+        (= k1 (- k0 1))
+        (= temp1 i0))
+    (inv i1 j1 k1 temp1)))

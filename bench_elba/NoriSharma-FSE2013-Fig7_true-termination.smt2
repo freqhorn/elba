@@ -1,0 +1,21 @@
+(declare-rel inv (Int Int Int Int Int Int Int))
+(declare-var a0 Int)
+(declare-var b0 Int)
+(declare-var c0 Int)
+(declare-var c1 Int)
+(declare-var i0 Int)
+(declare-var i1 Int)
+(declare-var j0 Int)
+(declare-var j1 Int)
+(declare-var M Int)
+(declare-var N Int)
+
+(rule (=> (and (= a0 i0) (= b0 j0) (= c0 0)) (inv a0 b0 c0 i0 j0 M N)))
+
+(rule (=> (and
+        (inv a0 b0 c0 i0 j0 M N)
+        (or (< i0 M) (< j0 N))
+        (= i1 (+ i0 1))
+        (= j1 (+ j0 1))
+        (= c1 (+ c0 1)))
+    (inv a0 b0 c1 i1 j1 M N)))
